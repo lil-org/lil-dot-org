@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lil org</title>
+	<link rel="shortcut icon" type="image/png" href="favicon.png" />
+	<style>
+		/* Import the San Francisco font from Apple */
+		@import url('https://fonts.googleapis.com/css?family=SF+Pro+Display&display=swap');
+		
+		body {
+			background-color: white;
+			color: black;
+			text-align: center;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			font-family: 'SF Pro Display', sans-serif; /* Use the San Francisco font for the entire website */
+		}
+		.text {
+			margin-bottom: 2rem;
+			text-transform: lowercase;
+			justify-content: center;
+		}
+		.text h1, .text h2 {
+			margin: 0;
+		}
+		.text h2 {
+			display: block;
+			margin-top: 0.5rem;
+		}
+		.text span:first-child {
+			font-size: 350%; /* Make "lil org" 3.5 times bigger */
+			font-weight: bold;
+		}
+		.text span:last-child {
+			font-size: 200%; /* Make "is making a wallet" 2 times bigger */
+			font-weight: bold;
+		}
+		img {
+			margin-bottom: 2rem;
+			height: 450px;
+			object-fit: cover;
+		}
+		button {
+			font-size: 200%; /* Use the same font size as the last line of text */
+			font-weight: bold; /* Use the same boldness as the last line of text */
+			background-color: transparent;
+			color: black;
+			border: none;
+			text-decoration: underline;
+			cursor: pointer;
+			font-family: 'SF Pro Display', sans-serif; /* Use the San Francisco font for the button */
+		}
+	</style>
+</head>
+<body>
+	<div class="text">
+		<h1>*hello*</h1>
+		<h2>
+			<span style="font-size: 350%; font-weight: bold;">&#x1F535; lil org</span><br> <!-- Add blue circle emoji -->
+			<span style="font-size: 200%; font-weight: bold;">is making a wallet</span>
+		</h2>
+	</div>
+	<img src="journey.jpg" alt="yo">
+	<a href="https://twitter.com/lildotorg"><button>let's go</button></a>
+</body>
+</html>
