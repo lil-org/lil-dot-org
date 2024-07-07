@@ -102,9 +102,9 @@
             line-height: 1;
             color: #007AFF;
         }
-        footer {
+        header {
             text-align: center;
-            margin-top: 1rem;
+            margin-bottom: 1rem;
             font-size: 2rem;
             font-weight: bold;
             white-space: nowrap;
@@ -121,7 +121,7 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            .app-card, .social-link, footer {
+            .app-card, .social-link, header {
                 background-color: rgba(255, 255, 255, 0.1);
                 color: #f0f0f0;
             }
@@ -142,11 +142,14 @@
 </head>
 <body>
     <div class="container">
+        <header style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
+            ∅ lil org
+        </header>
         <main class="app-grid">
             <a href="https://wallet.lil.org" class="app-card">
                 <img src="w.png" alt="big wallet icon" class="app-icon">
                 <h2 class="app-name">big wallet</h2>
-                <p class="app-description">crypto wallet for  safari</p>
+                <p class="app-description">crypto wallet for safari</p>
             </a>
             <a href="https://folder.lil.org" class="app-card">
                 <img src="f.png" alt="nft folder icon" class="app-icon">
@@ -183,13 +186,6 @@
                 <span class="social-subtitle">chat</span>
             </a>
         </div>
-        <footer style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
-            <script>
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                document.write(new Date().toLocaleString(undefined, options));
-            </script>
-            ∅ lil org
-        </footer>
     </div>
 </body>
 </html>
