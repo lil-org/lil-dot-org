@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-            color: #333333;
+            color: #1c1c1e;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -35,7 +35,7 @@
         }
 
         .app-card {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #f7f7f8;
             border-radius: 10px;
             padding: 1.5rem;
             text-align: center;
@@ -58,10 +58,12 @@
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
+            color: #1c1c1e;
         }
 
         .app-description {
             font-size: 1rem;
+            color: #3a3a3c;
         }
 
         .social-links {
@@ -74,8 +76,8 @@
         .social-link {
             font-size: 2rem;
             text-decoration: none;
-            color: inherit;
-            background-color: rgba(255, 255, 255, 0.1);
+            color: #1c1c1e;
+            background-color: #f7f7f8;
             border-radius: 10px;
             padding: 1rem;
             text-align: center;
@@ -97,13 +99,29 @@
             white-space: nowrap;
             overflow: hidden;
             width: calc(100% - 2rem);
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #f7f7f8;
             border-radius: 10px;
             padding: 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
             height: calc(2rem + 2rem);
+            color: #1c1c1e;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .app-card, .social-link, footer {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #f0f0f0;
+            }
+
+            .app-name {
+                color: #f0f0f0;
+            }
+
+            .app-description {
+                color: #bdc3c7;
+            }
         }
     </style>
 </head>
@@ -113,7 +131,7 @@
             <a href="https://apps.apple.com/your-big-wallet-app" class="app-card">
                 <div class="app-icon">👛</div>
                 <h2 class="app-name">big wallet</h2>
-                <p class="app-description">crypto wallet for  safari</p>
+                <p class="app-description">crypto wallet for  safari</p>
             </a>
             <a href="https://apps.apple.com/your-nft-folder-app" class="app-card">
                 <div class="app-icon">🖼️</div>
