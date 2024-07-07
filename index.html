@@ -102,12 +102,13 @@
             line-height: 1;
             color: #007AFF;
         }
+
         header, footer {
             text-align: center;
             margin-bottom: 1rem;
             font-size: 2rem;
             font-weight: bold;
-            white-space: nowrap;
+            white-space: normal;
             overflow: hidden;
             width: calc(100% - 2rem);
             background-color: #f7f7f8;
@@ -116,7 +117,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(2rem + 2rem);
+            min-height: calc(2rem + 2rem);
             color: #1c1c1e;
         }
 
@@ -125,7 +126,7 @@
             margin-bottom: 0;
             font-size: 2rem;
             font-weight: bold;
-            height: 5rem;
+            min-height: 5rem;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -144,6 +145,36 @@
 
             .social-subtitle {
                 color: #007AFF;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .social-links {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            }
+
+            .social-link {
+                font-size: 1.5rem;
+                padding: 1rem;
+                height: 60pt;
+            }
+
+            .social-subtitle {
+                font-size: 0.6rem;
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-link {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+                height: 50pt;
+            }
+
+            .social-subtitle {
+                font-size: 0.5rem;
+                margin-top: 0.3rem;
             }
         }
     </style>
