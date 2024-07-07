@@ -102,7 +102,7 @@
             line-height: 1;
             color: #007AFF;
         }
-        header {
+        header, footer {
             text-align: center;
             margin-bottom: 1rem;
             font-size: 2rem;
@@ -120,8 +120,15 @@
             color: #1c1c1e;
         }
 
+        footer {
+            margin-top: 1rem;
+            margin-bottom: 0;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
         @media (prefers-color-scheme: dark) {
-            .app-card, .social-link, header {
+            .app-card, .social-link, header, footer {
                 background-color: rgba(255, 255, 255, 0.1);
                 color: #f0f0f0;
             }
@@ -186,6 +193,21 @@
                 <span class="social-subtitle">chat</span>
             </a>
         </div>
+        <footer id="dateTime" style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
+        </footer>
     </div>
+    <script>
+        function setDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+            };
+            document.getElementById('dateTime').textContent = now.toLocaleString(undefined, options).toLowerCase() + " ⛲︎";
+        }
+        setDateTime();
+    </script>
 </body>
 </html>
