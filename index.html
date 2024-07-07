@@ -1,289 +1,178 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>big wallet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lil org</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
-
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            overflow-x: hidden;
-        }
-
-        html,
-        body {
-            width: 100vw;
-            height: 100vh;
-        }
-
-        html,
-        body,
-        .container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.3;
             margin: 0;
             padding: 0;
-            border: 0;
+            background-color: #ffffff;
+            color: #1c1c1e;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #f0f0f0;
+            }
         }
 
         .container {
-            width: 100%;
-            display: flex;
-            position: relative;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 16px 10px 0;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .content {
-            position: relative;
-            max-width: 780px;
-            width: 100%;
-            transform-origin: 0 0;
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        body {
-            background-color: black;
-        }
-
-        body,
-        h1,
-        h2,
-        h2bright,
-        h3,
-        h3bright,
-        p,
-        footer {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        h1 {
-            padding: 0;
-            margin: 0;
-            color: white;
-            font-weight: 700;
-            font-size: clamp(10px, 8vw, 50px);
-        }
-
-        h2 {
-            padding: 0;
-            margin: 0;
-            color: #0093FF;
-            font-weight: 700;
-            font-size: clamp(10px, 5vw, 42px);
-        }
-
-        h2bright {
-            padding: 0;
-            margin: 0;
-            color: white;
-            font-weight: 700;
-            font-size: clamp(10px, 5vw, 42px);
-        }
-
-        h3 {
-            font-size: clamp(10px, 4.2vw, 38px);
-            font-weight: 500;
-            color: white;
-            padding: 0;
-            margin: 0;
-        }
-
-        h3bright {
-            font-size: clamp(9px, 3.69vw, 34px);
-            font-weight: 500;
-            color: #4b9ef5;
-            padding: 0;
-            margin: 0;
-        }
-
-        footer {
-            font-size: clamp(10px, 10vw, 93px);
-            color: #4b9ef5;
-            white-space: nowrap;
-            font-weight: 800;
-            margin-top: 15px;
-        }
-
-        p {
-            font-size: clamp(10px, 4vw, 36px);
-            color: #949494;
-            margin: 8px 0 0;
-        }
-
-        a {
-            color: currentColor;
+        .app-card {
+            background-color: #f7f7f8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
             text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
-        .link {
-            color: #4b9ef5;
+        .app-card:hover {
+            transform: translateY(-1px);
         }
 
-        @media (hover: hover) and (pointer: fine) {
-            .link:hover {
-                text-decoration: underline;
-            }
-
-            a.cell:hover {
-                background-color: #363636;
-            }
-
-            a.bright_cell:hover {
-                background-color: #0094ffbd;
-            }
-
-            a.cell:hover .arrow {
-                border: solid white;
-                border-width: 0 clamp(2px, 1vw, 5px) clamp(2px, 1vw, 5px) 0;
-            }
+        .app-icon {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 0rem;
         }
 
-        .row {
+        .app-name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 0.23rem;
+            margin-bottom: 0.33rem;
+            color: #1c1c1e;
+        }
+
+        .app-description {
+            font-size: 1rem;
+            color: #3a3a3c;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            font-size: 2rem;
+            text-decoration: none;
+            color: #3a3a3c;
+            background-color: #f7f7f8;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s;
             display: flex;
-            align-items: stretch;
-            width: 100%;
-            margin-bottom: clamp(4px, 2vw, 12px);
-        }
-
-        .cell {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1 1 auto;
-            border-radius: 16px;
-            background-color: #181818;
-            transition: background-color 200ms;
-            margin: 1px clamp(2px, 1vw, 6px);
-            padding: 18px clamp(8px, 4vw, 20px);
-        }
-
-        .bright_cell {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1 1 auto;
-            border-radius: 16px;
-            background-color: #0094ff70;
-            transition: background-color 200ms;
-            margin: 1px clamp(2px, 1vw, 6px);
-            padding: 18px clamp(8px, 4vw, 20px);
-        }
-
-        .centered {
             justify-content: center;
             align-items: center;
         }
 
-        .arrow {
-            border: solid #949494;
-            border-width: 0 clamp(2px, 1vw, 5px) clamp(2px, 1vw, 5px) 0;
-            display: inline-block;
-            padding: clamp(4px, 1.4vw, 7px);
-            border-radius: 3px;
-            ;
-            transform: rotate(-45deg);
-            -webkit-transform: rotate(-45deg);
-            transition: border 200ms;
+        .social-link:hover {
+            transform: translateY(-1px);
         }
 
-        .with-arrow {
-            width: 100%;
+        footer {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            width: calc(100% - 2rem);
+            background-color: #f7f7f8;
+            border-radius: 10px;
+            padding: 1rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            height: calc(2rem + 2rem);
+            color: #1c1c1e;
         }
 
-        .logo {
-            width: clamp(60px, 20vw, 138px);
-            height: clamp(60px, 20vw, 138px);
-            object-fit: contain;
-            margin-right: 12px;
-            position: relative;
-            top: 2px;
-        }
+        @media (prefers-color-scheme: dark) {
+            .app-card, .social-link, footer {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #f0f0f0;
+            }
 
-        .title-logo {
-            display: flex;
-            align-items: center;
-            margin: clamp(0, 0.8vw, 8px) 0;
-        }
+            .app-name {
+                color: #f0f0f0;
+            }
 
-        .back-logo {
-            width: 200px;
-            height: 200px;
+            .app-description {
+                color: #bdc3c7;
+            }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <div class="content">
-            <div class="row">
-                <div class="cell">
-                    <div class="title-logo">
-                        <img src="/icon.png" class="logo" />
-                        <div>
-                            <h1>big wallet</h1>
-                            <p>crypto wallet for  safari</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <a class="bright_cell centered" href="https://get.lil.org">
-                    <h2bright>🤝 download</h2bright>
-                </a>
-            </div>
-            <div class="row">
-                <a class="cell centered" href="https://github.lil.org" target="_blank">
-                    <h3bright>🚢 github</h3bright>
-                </a>
-                <a class="cell centered" href="mailto:support@lil.org" target="_blank">
-                    <h3bright>💌 mail</h3bright>
-                </a>
-                <a class="cell centered" href="https://f.lil.org" target="_blank">
-                    <h3bright>🟣 cast</h3bright>
-                </a>
-                <a class="cell centered" href="https://x.lil.org" target="_blank">
-                    <h3bright>🐤 x</h3bright>
-                </a>
-            </div>
-            <div class="row">
-                <div class="cell">
-                    <h3>🌸 why use big wallet?</h3>
-                    <p>connect like metamask in safari and<br />smoothly approve transactions</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell">
-                    <h3>🔐 is big wallet secure?</h3>
-                    <p>big wallet is <a class="link" href="https://github.lil.org"
-                            target="_blank">open-source</a> and<br />stores encrypted keys in <a class="link"
-                            href="https://developer.apple.com/documentation/security/keychain_services"
-                            target="_blank">keychain</a></p>
-                </div>
-            </div>
-            <div class="row">
-                <a class="cell" href="https://get.lil.org">
-                    <div class="with-arrow">
-                        <h3>💗 get big wallet now!</h3>
-                        <div class="arrow"></div>
-                    </div>
-                </a>
-            </div>
-            <footer>
-                <div class="row centered">
-                    ©© ∅ 2024 lil.org
-                </div>
-            </footer>
+        <main class="app-grid">
+            <a href="https://wallet.lil.org" class="app-card">
+                <img src="w.png" alt="big wallet icon" class="app-icon">
+                <h2 class="app-name">big wallet</h2>
+                <p class="app-description">crypto wallet for  safari</p>
+            </a>
+            <a href="https://folder.lil.org" class="app-card">
+                <img src="f.png" alt="nft folder icon" class="app-icon">
+                <h2 class="app-name">nft folder</h2>
+                <p class="app-description">download and view nfts on macos</p>
+            </a>
+        </main>
+        <div class="social-links">
+            <a href="https://g.lil.org" class="social-link" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://x.lil.org" class="social-link" aria-label="X (Twitter)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" stroke="currentColor" stroke-width="0.2"/></svg>
+            </a>
+            <a href="mailto:ivan@lil.org" class="social-link" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                    <path d="M22 7l-10 7L2 7"></path>
+                </svg>
+            </a>
+            <a href="https://mint.lil.org" class="social-link" aria-label="Zora">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            </a>
+            <a href="https://f.lil.org" class="social-link" aria-label="Farcaster">
+                <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.38281 0.554688H22.2602V24.5547H19.7828V13.5611H19.7585C19.4847 10.5228 16.9311 8.14175 13.8215 8.14175C10.7119 8.14175 8.15834 10.5228 7.88451 13.5611H7.86023V24.5547H5.38281V0.554688Z" fill="currentColor"/>
+                    <path d="M0.890625 3.96094L1.89708 7.36739H2.74868V21.148C2.3211 21.148 1.97449 21.4947 1.97449 21.9222V22.8513H1.81967C1.39209 22.8513 1.04545 23.1979 1.04545 23.6255V24.5545H9.71641V23.6255C9.71641 23.1979 9.3698 22.8513 8.94223 22.8513H8.78741V21.9222C8.78741 21.4947 8.44076 21.148 8.01319 21.148H7.08418V3.96094H0.890625Z" fill="currentColor"/>
+                    <path d="M19.9376 21.148C19.51 21.148 19.1634 21.4947 19.1634 21.9222V22.8513H19.0086C18.581 22.8513 18.2344 23.1979 18.2344 23.6255V24.5545H26.9053V23.6255C26.9053 23.1979 26.5587 22.8513 26.1311 22.8513H25.9763V21.9222C25.9763 21.4947 25.6297 21.148 25.2021 21.148V7.36739H26.0537L27.0602 3.96094H20.8666V21.148H19.9376Z" fill="currentColor"/>
+                </svg>
+            </a>
         </div>
+        <footer style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
+            <script>
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                document.write(new Date().toLocaleString(undefined, options));
+            </script>
+            ∅ lil org
+        </footer>
     </div>
 </body>
-
 </html>
