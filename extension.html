@@ -135,17 +135,39 @@
             min-height: 5rem;
         }
 
+        .qa-block {
+            background-color: #f7f7f8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            padding-top: 0.34rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .qa-question {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: #1c1c1e;
+        }
+
+        .qa-answer {
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: #3a3a3c;
+        }
+
         @media (prefers-color-scheme: dark) {
-            .app-card, .social-link, header, footer {
+            .app-card, .social-link, header, footer, .qa-block {
                 background-color: rgba(255, 255, 255, 0.1);
                 color: #f0f0f0;
             }
 
-            .app-name {
+            .app-name, .qa-question {
                 color: #f0f0f0;
             }
 
-            .app-description {
+            .app-description, .qa-answer {
                 color: #bdc3c7;
             }
 
@@ -193,6 +215,10 @@
                 padding-top: 0.69rem;
             }
 
+            .qa-block {
+                margin-bottom: 0.69rem;
+            }
+
             .app-grid {
                 gap: 0.69rem;
                 margin-bottom: 0.69rem;
@@ -232,6 +258,14 @@
         <header style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
             ∅ lil org
         </header>
+        <div class="qa-block">
+            <p class="qa-question">how to proceed?</p>
+            <p class="qa-answer">click the "open" button at the top of the page</p>
+        </div>
+        <div class="qa-block">
+            <p class="qa-question">what if there is no button?</p>
+            <p class="qa-answer">restart your device for a possible fix</p>
+        </div>
         <main class="app-grid">
             <a href="https://wallet.lil.org" class="app-card">
                 <img src="w.png" alt="big wallet icon" class="app-icon">
