@@ -4,4 +4,4 @@
 wip
 
 
-contact [mailto:ivan@lil.org](ivan@lil.org)
+contact [ivan@lil.org](mailto:ivan@lil.org)
