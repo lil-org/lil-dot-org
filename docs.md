@@ -2,7 +2,7 @@
 
 download [big wallet](https://apps.apple.com/app/id6478607925) and [nft folder](https://apps.apple.com/app/id6472607192)
 
-follow on [farcaster](https://warpcast.com/org), [github](https://github.com/lil-org), and [x](https://x.com/lildotorg)
+follow on [farcaster](https://farcaster.xyz/org), [github](https://github.com/lil-org), and [x](https://x.com/lildotorg)
 
 contact [yo@lil.org](mailto:yo@lil.org)
 
