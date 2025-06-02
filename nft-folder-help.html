@@ -1,330 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>lil org</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        line-height: 1.3;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        color: #1c1c1e;
+      }
+
+      @media (prefers-color-scheme: dark) {
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.3;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #1c1c1e;
+          background-color: #131313;
+          color: #f0f0f0;
         }
+      }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #131313;
-                color: #f0f0f0;
-            }
-        }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0.69rem;
+        padding-top: 2rem;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0.69rem;
-            padding-top: 2rem;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
+      .app-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
 
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
+      .app-card {
+        background-color: #f7f7f8;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
 
-        .app-card {
-            background-color: #f7f7f8;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
+      .app-card:hover {
+        transform: translateY(-1px);
+      }
 
-        .app-card:hover {
-            transform: translateY(-1px);
-        }
+      .app-icon {
+        width: 130px;
+        height: 130px;
+        margin: 0 auto 0rem;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
 
-        .app-icon {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 0rem;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
+      .app-name {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 0.23rem;
+        margin-bottom: 0.33rem;
+        color: #1c1c1e;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      .app-description {
+        font-size: 1rem;
+        color: #3a3a3c;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      .social-links {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-link {
+        font-size: 2rem;
+        text-decoration: none;
+        color: #3a3a3c;
+        background-color: #f7f7f8;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100pt;
+      }
+
+      .social-link:hover {
+        transform: translateY(-1px);
+      }
+
+      .social-subtitle {
+        font-size: 0.7rem;
+        margin-top: 0.81rem;
+        line-height: 1;
+        color: #007aff;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      header,
+      footer {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        font-weight: bold;
+        white-space: normal;
+        overflow: hidden;
+        width: calc(100% - 2rem);
+        background-color: #f7f7f8;
+        border-radius: 10px;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 5rem;
+        color: #1c1c1e;
+      }
+
+      footer {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .app-card,
+        .social-link,
+        header,
+        footer {
+          background-color: rgba(255, 255, 255, 0.1);
+          color: #f0f0f0;
         }
 
         .app-name {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-top: 0.23rem;
-            margin-bottom: 0.33rem;
-            color: #1c1c1e;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
+          color: #f0f0f0;
         }
 
         .app-description {
-            font-size: 1rem;
-            color: #3a3a3c;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
-
-        .social-links {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            font-size: 2rem;
-            text-decoration: none;
-            color: #3a3a3c;
-            background-color: #f7f7f8;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100pt;
-        }
-
-        .social-link:hover {
-            transform: translateY(-1px);
+          color: #bdc3c7;
         }
 
         .social-subtitle {
-            font-size: 0.7rem;
-            margin-top: 0.81rem;
-            line-height: 1;
-            color: #007AFF;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
+          color: #007aff;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .social-links {
+          grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         }
 
-        header, footer {
-            text-align: center;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            font-weight: bold;
-            white-space: normal;
-            overflow: hidden;
-            width: calc(100% - 2rem);
-            background-color: #f7f7f8;
-            border-radius: 10px;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 5rem;
-            color: #1c1c1e;
+        .social-link {
+          font-size: 1.5rem;
+          padding: 1rem;
+          height: 77pt;
+        }
+
+        .social-subtitle {
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .social-links {
+          gap: 0.5rem;
+          margin-top: 0.5rem;
+        }
+
+        .social-link {
+          font-size: 1.2rem;
+          padding: 0.8rem;
+          height: 69pt;
+        }
+
+        .social-subtitle {
+          font-size: 0.5rem;
+          margin-top: 0.3rem;
+        }
+
+        .container {
+          padding: 0.5rem;
+          padding-top: 0.5rem;
+        }
+
+        .app-grid {
+          gap: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .app-card {
+          padding: 0.69rem;
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+        }
+
+        header,
+        footer {
+          margin-bottom: 0.5rem;
         }
 
         footer {
-            margin-top: 1rem;
-            margin-bottom: 0;
-            font-size: 2rem;
-            font-weight: bold;
+          margin-top: 0.5rem;
+          margin-bottom: 0;
+          font-size: 1.69rem;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .app-card, .social-link, header, footer {
-                background-color: rgba(255, 255, 255, 0.1);
-                color: #f0f0f0;
-            }
-
-            .app-name {
-                color: #f0f0f0;
-            }
-
-            .app-description {
-                color: #bdc3c7;
-            }
-
-            .social-subtitle {
-                color: #007AFF;
-            }
+        .app-name {
+          font-size: 1.69rem;
         }
 
-        @media (max-width: 768px) {
-            .social-links {
-                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-            }
+        .app-description {
+          font-size: 0.69rem;
+        }
+      }
 
-            .social-link {
-                font-size: 1.5rem;
-                padding: 1rem;
-                height: 77pt;
-            }
-
-            .social-subtitle {
-                font-size: 0.6rem;
-                margin-top: 0.5rem;
-            }
+      @media (max-width: 355px) {
+        .app-icon {
+          width: 100px;
+          height: 100px;
         }
 
-        @media (max-width: 480px) {
-            .social-links {
-                gap: 0.5rem;
-                margin-top: 0.5rem;
-            }
-
-            .social-link {
-                font-size: 1.2rem;
-                padding: 0.8rem;
-                height: 69pt;
-            }
-
-            .social-subtitle {
-                font-size: 0.5rem;
-                margin-top: 0.3rem;
-            }
-
-            .container {
-                padding: 0.5rem;
-                padding-top: 0.5rem;
-            }
-
-            .app-grid {
-                gap: 0.5rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .app-card {
-                padding: 0.69rem;
-                padding-top: 1.5rem;
-                padding-bottom: 1.5rem;
-            }
-
-            header, footer {
-                margin-bottom: 0.5rem;
-            }
-
-            footer {
-                margin-top: 0.5rem;
-                margin-bottom: 0;
-                font-size: 1.69rem;
-            }
-
-            .app-name {
-                font-size: 1.69rem;
-            }
-
-            .app-description {
-                font-size: 0.69rem;
-            }
+        footer {
+          font-size: 1.5rem;
         }
 
-        @media (max-width: 355px) {
-            .app-icon {
-                width: 100px;
-                height: 100px;
-            }
-
-            footer {
-                font-size: 1.5rem;
-            }
-
-            .social-links {
-                grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
-            }
-
-            .app-grid {
-                gap: 0.33rem;
-            }
-
-            .container {
-                padding: 0.33rem;
-            }
-
-            .social-links {
-                gap: 0.23rem;
-            }
+        .social-links {
+          grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
         }
+
+        .app-grid {
+          gap: 0.33rem;
+        }
+
+        .container {
+          padding: 0.33rem;
+        }
+
+        .social-links {
+          gap: 0.23rem;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
-            ☺︎ lil org
-        </header>
-        <header style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
-            nft folder / support
-        </header>
-        <div class="social-links">
-            <a href="https://github.com/lil-org" class="social-link" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span class="social-subtitle">lil-org</span>
-            </a>
-            <a href="https://github.com/lil-org/lil-dot-org/blob/main/docs.md" class="social-link" aria-label="Docs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 25 31" fill="none">
-                    <path d="M5.37073 30.7933H19.9299C23.0143 30.7933 24.6563 29.1394 24.6563 26.0313V13.8068C24.6563 11.6838 24.3694 10.6695 23.0222 9.2985L16.3632 2.53248C15.0636 1.20905 13.9779 0.898438 12.0214 0.898438H5.37073C2.28636 0.898438 0.65625 2.5523 0.65625 5.66045V26.0313C0.65625 29.1513 2.28636 30.7933 5.37073 30.7933ZM5.70899 27.4731C4.53996 27.4731 3.97643 26.8636 3.97643 25.7524V5.93929C3.97643 4.82811 4.53996 4.21858 5.72088 4.21858H11.1752V11.1789C11.1752 13.4135 12.2601 14.4984 14.4947 14.4984H21.3242V25.7524C21.3242 26.8636 20.7606 27.4731 19.5916 27.4731H5.70899ZM14.7856 11.6734C14.2419 11.6734 13.9883 11.4198 13.9883 10.8762V4.57291L20.9699 11.6734H14.7856Z" fill="currentColor"/>
-                </svg>
-                <span class="social-subtitle">docs</span>
-            </a>
-            <a href="mailto:yo@lil.org" class="social-link" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                    <path d="M22 7l-10 7L2 7"></path>
-                </svg>
-                <span class="social-subtitle">email</span>
-            </a>
-            <a href="https://farcaster.xyz/org" class="social-link" aria-label="Farcaster">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4.5 0.46875H18.75V20.7188H16.6875V11.4453C16.4531 8.88281 14.2969 6.875 11.625 6.875C8.95312 6.875 6.79688 8.88281 6.5625 11.4453V20.7188H4.5V0.46875Z"/>
-                    <path d="M0.75 3.34375L1.59375 6.21875H2.3125V17.8594C1.96875 17.8594 1.66406 18.1562 1.66406 18.5156V19.3125H1.53125C1.17188 19.3125 0.882812 19.6094 0.882812 19.9688V20.7188H8.20312V19.9688C8.20312 19.6094 7.91406 19.3125 7.55469 19.3125H7.42188V18.5156C7.42188 18.1562 7.11719 17.8594 6.77344 17.8594H5.97656V3.34375H0.75Z"/>
-                    <path d="M16.8281 17.8594C16.4844 17.8594 16.1797 18.1562 16.1797 18.5156V19.3125H16.0469C15.7031 19.3125 15.3984 19.6094 15.3984 19.9688V20.7188H22.7188V19.9688C22.7188 19.6094 22.4141 19.3125 22.0703 19.3125H21.9375V18.5156C21.9375 18.1562 21.6328 17.8594 21.2891 17.8594V6.21875H22L22.8438 3.34375H17.625V17.8594H16.8281Z"/>
-                </svg>
-                <span class="social-subtitle">org</span>
-            </a>
-            <a href="https://x.com/lildotorg" class="social-link" aria-label="X (Twitter)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" stroke="currentColor" stroke-width="0.2"/></svg>
-                <span class="social-subtitle">lildotorg</span>
-            </a>
-        </div>
-        <footer id="dateTime" style="user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; cursor: default;">
-        </footer>
+      <header
+        style="
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          cursor: default;
+        "
+      >
+        ∅ lil org
+      </header>
+      <header
+        style="
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          cursor: default;
+        "
+      >
+        nft folder / support
+      </header>
+      <div class="social-links">
+        <a
+          href="https://github.com/lil-org"
+          class="social-link"
+          aria-label="GitHub"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+          <span class="social-subtitle">lil-org</span>
+        </a>
+        <a
+          href="https://github.com/lil-org/lil-dot-org/blob/main/docs.md"
+          class="social-link"
+          aria-label="Docs"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 25 31"
+            fill="none"
+          >
+            <path
+              d="M5.37073 30.7933H19.9299C23.0143 30.7933 24.6563 29.1394 24.6563 26.0313V13.8068C24.6563 11.6838 24.3694 10.6695 23.0222 9.2985L16.3632 2.53248C15.0636 1.20905 13.9779 0.898438 12.0214 0.898438H5.37073C2.28636 0.898438 0.65625 2.5523 0.65625 5.66045V26.0313C0.65625 29.1513 2.28636 30.7933 5.37073 30.7933ZM5.70899 27.4731C4.53996 27.4731 3.97643 26.8636 3.97643 25.7524V5.93929C3.97643 4.82811 4.53996 4.21858 5.72088 4.21858H11.1752V11.1789C11.1752 13.4135 12.2601 14.4984 14.4947 14.4984H21.3242V25.7524C21.3242 26.8636 20.7606 27.4731 19.5916 27.4731H5.70899ZM14.7856 11.6734C14.2419 11.6734 13.9883 11.4198 13.9883 10.8762V4.57291L20.9699 11.6734H14.7856Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span class="social-subtitle">docs</span>
+        </a>
+        <a href="mailto:yo@lil.org" class="social-link" aria-label="Email">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+            <path d="M22 7l-10 7L2 7"></path>
+          </svg>
+          <span class="social-subtitle">email</span>
+        </a>
+        <a
+          href="https://farcaster.xyz/org"
+          class="social-link"
+          aria-label="Farcaster"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M4.5 0.46875H18.75V20.7188H16.6875V11.4453C16.4531 8.88281 14.2969 6.875 11.625 6.875C8.95312 6.875 6.79688 8.88281 6.5625 11.4453V20.7188H4.5V0.46875Z"
+            />
+            <path
+              d="M0.75 3.34375L1.59375 6.21875H2.3125V17.8594C1.96875 17.8594 1.66406 18.1562 1.66406 18.5156V19.3125H1.53125C1.17188 19.3125 0.882812 19.6094 0.882812 19.9688V20.7188H8.20312V19.9688C8.20312 19.6094 7.91406 19.3125 7.55469 19.3125H7.42188V18.5156C7.42188 18.1562 7.11719 17.8594 6.77344 17.8594H5.97656V3.34375H0.75Z"
+            />
+            <path
+              d="M16.8281 17.8594C16.4844 17.8594 16.1797 18.1562 16.1797 18.5156V19.3125H16.0469C15.7031 19.3125 15.3984 19.6094 15.3984 19.9688V20.7188H22.7188V19.9688C22.7188 19.6094 22.4141 19.3125 22.0703 19.3125H21.9375V18.5156C21.9375 18.1562 21.6328 17.8594 21.2891 17.8594V6.21875H22L22.8438 3.34375H17.625V17.8594H16.8281Z"
+            />
+          </svg>
+          <span class="social-subtitle">org</span>
+        </a>
+        <a
+          href="https://x.com/lildotorg"
+          class="social-link"
+          aria-label="X (Twitter)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              stroke="currentColor"
+              stroke-width="0.2"
+            />
+          </svg>
+          <span class="social-subtitle">lildotorg</span>
+        </a>
+      </div>
+      <footer
+        id="dateTime"
+        style="
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          cursor: default;
+        "
+      ></footer>
     </div>
     <script>
-        function setDateTime() {
-            const now = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-            };
-            document.getElementById('dateTime').textContent = now.toLocaleString(undefined, options).toLowerCase();
-        }
-        setDateTime();
+      function setDateTime() {
+        const now = new Date();
+        const options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        document.getElementById("dateTime").textContent = now
+          .toLocaleString(undefined, options)
+          .toLowerCase();
+      }
+      setDateTime();
     </script>
-</body>
+  </body>
 </html>
