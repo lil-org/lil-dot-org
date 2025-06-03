@@ -8,7 +8,13 @@ contact [yo@lil.org](mailto:yo@lil.org)
 
 ----
 
-![orb in cutieland by claramaionese](https://github.com/user-attachments/assets/fdf1237e-b580-43c7-917f-554738f104e3)
+![super metal mons playing in a field](https://github.com/user-attachments/assets/1fc500b4-cf0f-4ae2-9f63-27cae0bc8116)
 
-*[orb in cutieland](https://zora.co/collect/zora:0x5386a1af2ae30695c2e42dc53a07693060269cc7/1?referrer=0x2e1Fe8c5721c5CdDDE645B2234046d3113C19418) by [claramaionese](https://zora.co/@claramaionese)*
+
+
+
+
+*[super metal mons playing in a field](https://foundation.app/mint/eth/0x38E0c9324D299EAcc71698f8282D121Afee0De0e/3) by [supermetalx](https://x.com/supermetalx)*
+
+
 
