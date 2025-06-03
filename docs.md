@@ -14,7 +14,4 @@ contact [yo@lil.org](mailto:yo@lil.org)
 
 
 
-*[super metal mons playing in a field](https://foundation.app/mint/eth/0x38E0c9324D299EAcc71698f8282D121Afee0De0e/3) by [supermetalx](https://x.com/supermetalx)*
-
-
-
+*[super metal mons playing in a field](https://foundation.app/mint/eth/0x38E0c9324D299EAcc71698f8282D121Afee0De0e/3)
