@@ -1,6 +1,6 @@
 # lil org
 
-download [big wallet](https://apps.apple.com/app/id6478607925) and [nft folder](https://apps.apple.com/app/id6472607192)
+download [big wallet](https://apps.apple.com/app/id6478607925) and [nft player](https://apps.apple.com/app/id6472607192)
 
 follow on [github](https://github.com/lil-org) and [x](https://x.com/lildotorg)
 
