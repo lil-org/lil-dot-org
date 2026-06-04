@@ -61,6 +61,7 @@
       }
 
       .is-settling-viewport .container {
+        opacity: 0;
         visibility: hidden;
       }
 
@@ -74,8 +75,10 @@
       .container {
         max-width: 800px;
         margin: 0 auto;
+        opacity: 1;
         padding: 0.69rem;
         padding-top: 2rem;
+        transition: opacity 120ms ease-out;
         user-select: none;
         -webkit-user-select: none;
         -moz-user-select: none;
