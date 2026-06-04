@@ -9,6 +9,46 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <script>
+      document.documentElement.classList.add("is-settling-viewport");
+
+      function showWhenViewportSettles() {
+        const readHeight = () =>
+          Math.round(window.visualViewport?.height || window.innerHeight || 0);
+        const startedAt = performance.now();
+        let lastHeight = readHeight();
+        let stableFrames = 0;
+
+        function tick() {
+          const height = readHeight();
+          const elapsed = performance.now() - startedAt;
+
+          if (height === lastHeight) {
+            stableFrames += 1;
+          } else {
+            lastHeight = height;
+            stableFrames = 0;
+          }
+
+          if ((elapsed > 120 && stableFrames >= 3) || elapsed > 500) {
+            document.documentElement.classList.remove("is-settling-viewport");
+            return;
+          }
+
+          requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", showWhenViewportSettles, {
+          once: true,
+        });
+      } else {
+        showWhenViewportSettles();
+      }
+    </script>
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -18,6 +58,10 @@
         padding: 0;
         background-color: #ffffff;
         color: #1c1c1e;
+      }
+
+      .is-settling-viewport .container {
+        visibility: hidden;
       }
 
       @media (prefers-color-scheme: dark) {
