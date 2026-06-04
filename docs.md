@@ -8,4 +8,4 @@ contact [yo@lil.org](mailto:yo@lil.org)
 
 ----
 
-![super metal mons playing in a field](https://github.com/user-attachments/assets/1fc500b4-cf0f-4ae2-9f63-27cae0bc8116)
+<img width="1793" height="2698" alt="Alien Kigurumi in a Dry Field" src="https://github.com/user-attachments/assets/6caf177d-b87f-4812-a75f-72988cc3251a" />
