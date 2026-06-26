@@ -1,4 +1,4 @@
-# lil org
+# lil org Inc.
 
 download [big wallet](https://apps.apple.com/app/id6478607925) and [nft player](https://apps.apple.com/app/id6472607192)
 
